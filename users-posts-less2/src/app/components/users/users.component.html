@@ -1,0 +1,11 @@
+
+
+<app-user *ngFor=" let u of allUsers" [userFromUsersComponent]="u" (getBack)="getBackUser($event)" >
+  
+</app-user>
+
+<div>
+    
+    <hr/>
+    {{chosenUser?.id}}. {{chosenUser?.name}}
+</div>
