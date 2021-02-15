@@ -1,0 +1,6 @@
+
+<input type=text [(ngModel)]='search' placeholder="Filter By Name and Surname">
+
+<app-user *ngFor='let i of users | filter:search' [user]='i'></app-user>
+
+<router-outlet></router-outlet>
