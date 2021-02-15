@@ -1,0 +1,42 @@
+<div>
+  <h1>Reactive Form</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <h2>Enter user's name</h2>
+      
+      <input
+      [formControl]="name"
+      type="text"
+      placeholder="enter user name"
+      >
+      <h4 *ngIf="name.errors?.required">Field must be filled</h4>
+      <h4 *ngIf="name.errors?.minlength?.actualLength">
+        Length of field min {{name.errors?.minlength?.requiredLength}} symbols
+      (actual length: {{name.errors?.minlength?.actualLength}})
+      </h4>
+    </div>
+
+    <div>
+      <h2>Enter user's age</h2>
+      <h3 *ngIf="age.errors?.min?.min">The form only for adult users!</h3>
+      <input
+      
+      [formControl]="age"
+      type="number"
+      placeholder="enter user age"
+      >
+    </div>
+    
+    <button >Submit</button>
+
+  </form>
+
+  <ul *ngFor="let i of users">
+    <li> 
+      <b>Username:</b> {{i.name}}
+      <b>Age:</b> {{i.age}}
+    </li>
+  </ul>
+
+</div>

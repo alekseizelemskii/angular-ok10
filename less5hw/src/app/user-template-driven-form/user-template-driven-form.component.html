@@ -1,0 +1,37 @@
+<div>
+  <h1>Template-Driven Form</h1>
+
+
+  <form #userForm = 'ngForm' (ngSubmit) = 'onSubmit(userForm)'>
+
+  <div>
+    <h3>Please, enter user's name</h3>
+    <input 
+    type="text"
+    placeholder="Enter User Name"
+    [(ngModel)]="nameInput"
+    name = "name"
+    minlength="3"
+    required
+    >
+    <h5 *ngIf="userForm.form.controls.name?.errors?.minlength?.actualLength">
+      Name's field must contain min 3 symbols
+    </h5>
+  </div>
+
+  <div>
+    <input 
+    type="number"
+    placeholder="Enter User Age"
+    [(ngModel)]="ageInput"
+    name = "age"
+    required
+    >
+  </div>
+    <button [disabled]="!userForm.valid">Submit</button>
+  </form>
+
+  <ul *ngFor="let i of users">
+    <li [value]="">Username: {{i.name}}; Age: {{i.age}}</li>
+  </ul>
+</div>
